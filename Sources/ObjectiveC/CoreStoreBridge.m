@@ -235,6 +235,11 @@ CSWhere *_Nonnull CSWherePredicate(NSPredicate *_Nonnull predicate) CORESTORE_RE
 
 - (void)setAffectedStores:(NSArray<NSPersistentStore *> *_Nullable)affectedStores {
     
+    if ([self.safeAffectedStores isEqualToArray:affectedStores]) {
+        
+        return;
+    }
+    
     // Bugfix for NSFetchRequest messing up memory management for `affectedStores`
     // http://stackoverflow.com/questions/14396375/nsfetchedresultscontroller-crashes-in-ios-6-if-affectedstores-is-specified
     
