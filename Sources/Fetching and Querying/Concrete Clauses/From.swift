@@ -211,7 +211,6 @@ public struct From<T: NSManagedObject> {
     internal func applyAffectedStoresForFetchedRequest(fetchRequest: NSFetchRequest, context: NSManagedObjectContext) -> Bool {
         
         let stores = self.findPersistentStores(context: context)
-        fetchRequest.affectedStores = stores
         return stores?.isEmpty == false
     }
     
